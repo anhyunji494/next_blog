@@ -13,7 +13,6 @@ export default function LoginPage() {
     try {
       const data = await login(email, password);
       localStorage.setItem("accessToken", data.access);
-      // refresh 토큰은 쿠키로 관리되므로 저장하지 않음
       router.push("/");
     } catch (err) {
       setError("이메일 또는 비밀번호가 올바르지 않습니다.");
@@ -21,8 +20,8 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-start h-screen px-6 bg-white">
-      <div className="w-full max-w-sm pt-14">
+    <div className="relative flex flex-col items-center justify-start h-screen bg-white">
+      <div className="w-full h-screen max-w-sm pt-14">
         <h1 className="mb-8 text-xl font-extrabold text-center text-orange-400">
           BLOG
         </h1>
@@ -61,7 +60,7 @@ export default function LoginPage() {
       {error && <div className="mb-2 text-sm text-red-500">{error}</div>}
 
       <button
-        className="fixed bottom-0 left-0 w-screen p-3 mx-auto text-sm text-white bg-gray-300 rounded-xl sm:static sm:mt-8"
+        className="fixed bottom-0 left-0 w-full p-3 mx-auto text-sm text-white bg-gray-300 rounded-xl sm:static sm:mt-8"
         onClick={handleSubmit}
       >
         로그인

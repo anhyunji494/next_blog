@@ -13,3 +13,14 @@ export const login = async (email, password) => {
 
   return await res.json(); // { access, refresh }
 };
+
+export const logout = async () => {
+  const res = await fetch("/api/auth/logout", {
+    method: "GET",
+    credentials: "include",
+  });
+
+  if (!res.ok) {
+    throw new Error("로그아웃 실패");
+  }
+};
