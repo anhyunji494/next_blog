@@ -1,6 +1,6 @@
 // src/app/api/auth/login/route.js
 export async function POST(req) {
-  console.log("✅ /api/auth/login 라우트 호출됨");
+  console.log("/api/auth/login 라우트 호출됨");
 
   const body = await req.json();
 
